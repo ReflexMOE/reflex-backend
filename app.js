@@ -6,7 +6,7 @@ const Inert = require('inert');
 const Vision = require('vision');
 const routes = require('./routes');
 
-var r = require('rethinkdbdash')({
+const r = require('rethinkdbdash')({
     port: 28015,
     host: 'localhost'
 });
@@ -18,37 +18,6 @@ const server = Hapi.server({
     host: 'localhost'
 });
 
-const swaggerOptions = {
-    info: {
-        title: 'Reflex Bakckend API',
-        version: 1.0
-    }
-};
+server.start();
+console.log(`Server running at: ${server.info.uri}`);
 
-(async () => {
-    await server.register([
-        Inert,
-        Vision,
-        {
-            plugin: HapiSwagger,
-            options: swaggerOptions
-        }
-    ]);
-
-    server.route(routes);
-
-
-    const init = async () => {
-
-        await server.start();
-        console.log(`Server running at: ${server.info.uri}`);
-    };
-
-    process.on('unhandledRejection', (err) => {
-
-        console.log(err);
-        process.exit(1);
-    });
-
-    init();
-})();
