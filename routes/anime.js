@@ -1,10 +1,17 @@
 var Joi = require('joi');
 var handlers = require('../handlers/animeHandlers');
 
+/**
+ * @api {get} /anime/:slug Request Anime Information
+ * @apiName Get anime
+ * @apiGroup Public
+ *
+ * @apiParam {slug} slug of the anime's title.
+ *
+ * @apiSuccess {JSON} JSON representation of an Anime object.
+ */
+
 const animeConfig = {
-    description: 'Get anime',
-    notes: 'Returns an anime object by the slug of its name passed in the path',
-    tags: ['api'],
     validate: {
         params: {
             slug: Joi.string()
@@ -14,10 +21,17 @@ const animeConfig = {
     }
 }
 
+/**
+ * @api {get} /anime/list Request Anime List
+ * @apiName Get anime list
+ * @apiGroup Public
+ *
+ * @apiParam {slug} slug of the anime'stitle.
+ *
+ * @apiSuccess {JSON} JSON list of Anime objects.
+ */
+
 const animeListConfig = {
-    description: 'Get anime list',
-    notes: 'Returns a list of our anime',
-    tags: ['api']
 }
 
 module.exports = [

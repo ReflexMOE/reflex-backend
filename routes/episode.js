@@ -1,10 +1,17 @@
 var Joi = require('joi');
 var handlers = require('../handlers/episodeHandlers');
 
+/**
+ * @api {get} /episode/:slug Request Episode Information
+ * @apiName Get episode
+ * @apiGroup Public
+ *
+ * @apiParam {slug} slug of the episode's title.
+ *
+ * @apiSuccess {JSON} JSON representation of an Episode object.
+ */
+
 const episodeConfig = {
-    description: 'Get anime',
-    notes: 'Returns an anime object by the slug of its name passed in the path',
-    tags: ['api'],
     validate: {
         params: {
             slug: Joi.string()
@@ -14,10 +21,17 @@ const episodeConfig = {
     }
 }
 
+/**
+ * @api {get} /episode/list/:slug Request Episode List
+ * @apiName Get episode list
+ * @apiGroup Public
+ *
+ * @apiParam {slug} slug of the anime's title.
+ *
+ * @apiSuccess {JSON} JSON list of Episode objects for the desired anime.
+ */
+
 const episodeListConfig = {
-    description: 'Get the list of the episodes for an anime',
-    notes: 'Returns a list of episode objects by their anime\s name slug passed in the path',
-    tags: ['api'],
     validate: {
         params: {
             slug: Joi.string()
