@@ -26,7 +26,7 @@ const animeConfig = {
  * @apiName Get anime list
  * @apiGroup Public
  *
- * @apiParam {slug} slug of the anime'stitle.
+ * @apiParam {slug} slug of the anime's title.
  *
  * @apiSuccess {JSON} JSON list of Anime objects.
  */
