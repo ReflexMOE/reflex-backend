@@ -18,5 +18,6 @@ const server = Hapi.server({
     host: 'localhost'
 });
 
+server.route(routes)
 server.start();
 console.log(`Server running at: ${server.info.uri}`);

@@ -9,7 +9,7 @@ module.exports = {
                 .then(function (response) {
                     if (response.length != 0) {
                         console.log('Anime successfully returned');
-                        resolve(response);
+                        resolve(response[0]);
                     } else {
                         resolve(Boom.notFound('Cannot find the requested page'));
                     }
